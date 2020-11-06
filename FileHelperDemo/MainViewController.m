@@ -25,7 +25,9 @@
 //
 //    [self testZip];
     
-    [self testDownLoadFile];
+//    [self testDownLoadFile];
+    
+    [self testFile2];
 }
 
 - (void)testZip
@@ -94,6 +96,20 @@
     for (NSString* fileName in array) {
         NSLog(@"fileName:%@",fileName);
     }
+}
+
+- (void)testFile2
+{
+    NSString *srcPath = [LBXFileHelper mainBundlePath];
+    srcPath = [srcPath stringByAppendingFormat:@"/resource.bundle/sub1/README1.md"];
+  
+    NSString* tmpDir = [LBXFileHelper tmpDir];
+    
+    NSString *dstPath = [tmpDir stringByAppendingFormat:@"/signleFile/README1.md"];
+    [LBXFileHelper copyFileFromPath:srcPath toPath:dstPath];
+//    [LBXFileHelper copyFolderFromPath:srcPath toPath:dstPath1];
+    
+   
 }
 
 - (void)unzipWithSrcPath:(NSString*)srcPath dstDir:(NSString*)dstDir

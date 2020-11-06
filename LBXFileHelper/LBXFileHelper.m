@@ -166,25 +166,7 @@
 /// @param dstPath 目标文件夹
 + (BOOL)copyFileFromPath:(NSString*)srcPath toPath:(NSString*)dstPath
 {
-    if( ![[NSFileManager defaultManager] fileExistsAtPath:srcPath] )
-    {
-        return NO;
-    }
-    
-    //目标文件夹最后一级，不能存在,否则会报错
-    //Cannot make directory /private/.../tmp/h5Resource: File exists
-    if( [[NSFileManager defaultManager] fileExistsAtPath:dstPath] )
-    {
-        if( ![[NSFileManager defaultManager] removeItemAtPath:dstPath error:nil] )
-        {
-            return NO;
-        }
-    }
-    
-    NSError* err = nil;
-    BOOL success = [[NSFileManager defaultManager] copyItemAtPath:srcPath toPath:dstPath error:&err];
-    
-    return success;
+    return [self copyFolderFromPath:srcPath toPath:dstPath];
 }
 
 + (void)copyFileFromPath2:(NSString *)srcPath toPath:(NSString *)dstPath
