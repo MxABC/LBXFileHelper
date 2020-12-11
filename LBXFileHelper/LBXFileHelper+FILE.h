@@ -35,6 +35,11 @@
 
 + (NSData*)readAtFile:(FILE*)file size:(size_t)size;
 
+/// 修改文件名称
+/// @param srcPath 原始文件路径
+/// @param dstPath 修改文件路径(和源文件路径一致，只是最后的文件名称有变化)
++ (int)reNameWithSrcFilePath:(NSString*)srcPath dstPath:(NSString*)dstPath;
+
 #pragma mark- 文件大小
 + (size_t)fileSizeAtFile:(FILE*)file;
 

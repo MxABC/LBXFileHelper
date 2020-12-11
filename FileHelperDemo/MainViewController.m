@@ -61,7 +61,6 @@
             NSLog(@"解压失败");
         }
     }];
-    
 }
 
 - (void)testFile
@@ -107,14 +106,11 @@
     
     NSString *dstPath = [tmpDir stringByAppendingFormat:@"/signleFile/README1.md"];
     [LBXFileHelper copyFileFromPath:srcPath toPath:dstPath];
-//    [LBXFileHelper copyFolderFromPath:srcPath toPath:dstPath1];
-    
-   
+       
 }
 
 - (void)unzipWithSrcPath:(NSString*)srcPath dstDir:(NSString*)dstDir
 {
-    
     if ([LBXFileHelper createFolder:dstDir]){
         
         [SSZipArchive unzipFileAtPath:srcPath toDestination:dstDir progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
